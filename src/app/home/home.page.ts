@@ -15,6 +15,7 @@ import {
   Polygon,
   BaseArrayClass,
   ILatLng,
+  Polyline,
 } from '@ionic-native/google-maps';
 
 @Component({
@@ -51,10 +52,10 @@ export class HomePage implements OnInit {
       }
     });
    
-  
+  //poligono
     this.map.on(GoogleMapsEvent.MAP_CLICK).subscribe((params: any[]) => {
       const latLng: LatLng = params[0];
-     let agr= this.GORYOKAKU_POINTS.push(latLng);
+     let agr=   this.GORYOKAKU_POINTS.push(latLng);
       console.log(JSON.stringify(location, null, 2));
       this.map.addMarkerSync({
         position: latLng,
@@ -62,12 +63,16 @@ export class HomePage implements OnInit {
         animation: GoogleMapsAnimation.DROP
       });
     });
+//poligono
+  //polilinea
 
   
+  //polilinea
     
   }
   async onButtonClick() {
     this.map.clear();
+    this.GORYOKAKU_POINTS=[];
 /* 
     this.loading = await this.loadingCtrl.create({
       message: 'Please wait...'
@@ -76,6 +81,7 @@ export class HomePage implements OnInit {
  */
 }
 
+//poligono
 async pintarPoligonp(){
  
   let polygon: Polygon = this.map.addPolygonSync({
@@ -84,7 +90,7 @@ async pintarPoligonp(){
     'fillColor' : '#00FFAA',
     'strokeWidth': 10
   });
-  let points: BaseArrayClass<ILatLng> = polygon.getPoints();
+  const points: BaseArrayClass<ILatLng> = polygon.getPoints();
 
   points.forEach((latLng: ILatLng, idx: number) => {
     let marker: Marker = this.map.addMarkerSync({
@@ -96,9 +102,19 @@ async pintarPoligonp(){
       points.setAt(idx, position);
     });
   });
+}
 
+//Poligono
+async pintarLinea(){
+//polilinea
 
 }
+
+
+//polilinea
+
+
+
 }
 
 
