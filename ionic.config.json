@@ -1,0 +1,7 @@
+{
+  "name": "mapaG",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
