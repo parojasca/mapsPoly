@@ -26,9 +26,7 @@ import {
 export class HomePage implements OnInit {
   map: GoogleMap;
   loading: any;
-  GORYOKAKU_POINTS: ILatLng[] = [
-    
-  ];
+  GORYOKAKU_POINTS: ILatLng[] = [];
   constructor(
     public loadingCtrl: LoadingController,
     public toastCtrl: ToastController,
@@ -82,8 +80,7 @@ export class HomePage implements OnInit {
 }
 
 //poligono
-async pintarPoligonp(){
- 
+async pintarPoligonp() {
   let polygon: Polygon = this.map.addPolygonSync({
     'points': this.GORYOKAKU_POINTS,
     'strokeColor' : '#AA00FF',
@@ -94,7 +91,7 @@ async pintarPoligonp(){
 
   points.forEach((latLng: ILatLng, idx: number) => {
     let marker: Marker = this.map.addMarkerSync({
-      draggable: true,
+      draggable: false,
       position: latLng
     });
     marker.on(GoogleMapsEvent.MARKER_DRAG).subscribe((params) => {
